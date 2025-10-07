@@ -8,43 +8,39 @@ const Sidebar = ({ isCollapsed = false, onToggle }) => {
   const location = useLocation();
 
   const navigationItems = [
-    {
-      name: 'Accueil',
-      path: '/homepage-industrial-sewing-e-commerce-hub',
-      icon: 'Home',
-      description: 'Tableau de bord principal'
-    },
-    {
-      name: 'Machines',
-      path: '/machine-marketplace-interactive-product-catalog',
-      icon: 'Settings',
-      description: 'Catalogue des équipements'
-    },
-    {
-      name: 'Formation',
-      path: '/learning-academy-comprehensive-education-hub',
-      icon: 'GraduationCap',
-      description: 'Académie d\'apprentissage'
-    },
-    {
-      name: 'Maintenance',
-      path: '/maintenance-command-center-service-hub',
-      icon: 'Wrench',
-      description: 'Centre de service'
-    },
-    {
-      name: 'Tableau de Bord',
-      path: '/user-dashboard-personal-command-center',
-      icon: 'LayoutDashboard',
-      description: 'Espace personnel'
-    },
-    {
-      name: 'Communauté',
-      path: '/community-workshop-user-engagement-hub',
-      icon: 'Users',
-      description: 'Atelier communautaire'
-    }
-  ];
+  {
+    name: 'Accueil',
+    path: '/homepage-industrial-sewing-e-commerce-hub',
+    icon: 'Home',
+    description: 'Tableau de bord principal'
+  },
+  {
+    name: 'Machines',
+    path: '/machine-marketplace-interactive-product-catalog',
+    icon: 'Settings',
+    description: 'Catalogue des équipements'
+  },
+  {
+    name: 'How to use',
+    path: '/how-to-use', // ✅ redirect to protected route
+    icon: 'GraduationCap',
+    description: 'Académie d\'apprentissage'
+  },
+  {
+    name: 'Maintenance',
+    path: '/maintenance-command-center-service-hub',
+    icon: 'Wrench',
+    description: 'Centre de service'
+  },
+  
+  {
+    name: 'Reclamation',
+    path: '/community-workshop-user-engagement-hub',
+    icon: 'Users',
+    description: 'Atelier communautaire'
+  }
+];
+
 
   const quickActions = [
     { name: 'SOS Dépannage', icon: 'AlertTriangle', color: 'text-error' },

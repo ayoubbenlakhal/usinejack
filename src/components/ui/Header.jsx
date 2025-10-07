@@ -20,32 +20,22 @@ const Header = () => {
     },
     {
       name: 'How To Use',
-      path: '/learning-academy-comprehensive-education-hub',
+      path: '/how-to-use',
       icon: 'GraduationCap'
     },
     {
       name: 'Maintenance',
-      path: '/maintenance-command-center-service-hub',
+      path: "/academy-gate-mec",
       icon: 'Wrench'
     },
     {
-      name: 'Tableau de Bord',
-      path: '/user-dashboard-personal-command-center',
-      icon: 'LayoutDashboard'
-    }
-  ];
-
-  const secondaryItems = [
-    {
-      name: 'Communauté',
+      name: 'Réclamation',
       path: '/community-workshop-user-engagement-hub',
       icon: 'Users'
     }
   ];
 
-  const isActivePath = (path) => {
-    return location?.pathname === path;
-  };
+  const isActivePath = (path) => location?.pathname === path;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -55,9 +45,16 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card border-b border-border shadow-industrial">
       <div className="flex items-center justify-between h-16 px-4 lg:px-6">
         {/* Logo */}
-        <Link to="/homepage-industrial-sewing-e-commerce-hub" className="flex items-center space-x-3">
-          <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-            <Icon name="Scissors" size={24} color="white" strokeWidth={2} />
+        <Link 
+          to="/homepage-industrial-sewing-e-commerce-hub" 
+          className="flex items-center space-x-3"
+        >
+          <div className="flex items-center justify-center w-16 h-16 rounded-lg overflow-hidden">
+            <img 
+              src="https://jackstore.ma/wp-content/uploads/2024/03/cropped-HEADER-1.png" 
+              alt="Jackstore Logo" 
+              className="h-20 w-auto" 
+            />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold text-primary">Usine Jack</span>
@@ -81,42 +78,6 @@ const Header = () => {
               <span>{item?.name}</span>
             </Link>
           ))}
-          
-          {/* More Menu */}
-          <div className="relative group">
-            <button className="flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary hover:bg-muted transition-micro">
-              <Icon name="MoreHorizontal" size={18} />
-              <span>Plus</span>
-            </button>
-            
-            {/* Dropdown */}
-            <div className="absolute right-0 top-full mt-1 w-48 bg-popover border border-border rounded-md shadow-elevated opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-meaningful">
-              <div className="py-1">
-                {secondaryItems?.map((item) => (
-                  <Link
-                    key={item?.path}
-                    to={item?.path}
-                    className={`flex items-center space-x-2 px-4 py-2 text-sm hover:bg-muted transition-micro ${
-                      isActivePath(item?.path)
-                        ? 'text-primary font-medium' :'text-popover-foreground'
-                    }`}
-                  >
-                    <Icon name={item?.icon} size={16} />
-                    <span>{item?.name}</span>
-                  </Link>
-                ))}
-                <hr className="my-1 border-border" />
-                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-popover-foreground hover:bg-muted transition-micro">
-                  <Icon name="Settings" size={16} />
-                  <span>Paramètres</span>
-                </button>
-                <button className="flex items-center space-x-2 w-full px-4 py-2 text-sm text-popover-foreground hover:bg-muted transition-micro">
-                  <Icon name="HelpCircle" size={16} />
-                  <span>Aide</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </nav>
 
         {/* Desktop Actions */}
@@ -140,11 +101,12 @@ const Header = () => {
           <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} />
         </button>
       </div>
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-card border-t border-border shadow-elevated">
           <div className="px-4 py-4 space-y-2">
-            {[...navigationItems, ...secondaryItems]?.map((item) => (
+            {navigationItems?.map((item) => (
               <Link
                 key={item?.path}
                 to={item?.path}

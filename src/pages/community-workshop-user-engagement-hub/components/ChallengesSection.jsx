@@ -30,7 +30,7 @@ const ChallengesSection = ({ searchQuery }) => {
       daysLeft: 14,
       organizer: {
         name: "Usine Jack",
-        avatar: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=150",
+        avatar: "hc",
         isOfficial: true
       },
       requirements: [

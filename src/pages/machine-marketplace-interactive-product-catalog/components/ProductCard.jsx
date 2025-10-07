@@ -8,6 +8,7 @@ const ProductCard = ({ product, onCompare, isComparing, onQuickView }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const formatPrice = (price) => {
+    if (!price || isNaN(price)) return null; // ✅ Prevent NaN €
     return new Intl.NumberFormat('fr-FR', {
       style: 'currency',
       currency: 'EUR'
@@ -49,13 +50,6 @@ const ProductCard = ({ product, onCompare, isComparing, onQuickView }) => {
           >
             Aperçu
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            iconName="RotateCcw"
-          >
-            360°
-          </Button>
         </div>
 
         {/* Badges */}
@@ -86,6 +80,7 @@ const ProductCard = ({ product, onCompare, isComparing, onQuickView }) => {
           </button>
         </div>
       </div>
+
       {/* Content Section */}
       <div className="p-4">
         {/* Header */}
@@ -166,17 +161,10 @@ const ProductCard = ({ product, onCompare, isComparing, onQuickView }) => {
         {/* Price and Actions */}
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-lg font-bold text-foreground">
-              {formatPrice(product?.price)}
-            </span>
-            {product?.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                {formatPrice(product?.originalPrice)}
-              </span>
-            )}
-            {product?.monthlyPayment && (
-              <span className="text-xs text-muted-foreground">
-                ou {formatPrice(product?.monthlyPayment)}/mois
+            {/* ✅ Only main price */}
+            {product?.price && !isNaN(product?.price) && (
+              <span className="text-lg font-bold text-foreground">
+                {formatPrice(product?.price)}
               </span>
             )}
           </div>
@@ -185,18 +173,10 @@ const ProductCard = ({ product, onCompare, isComparing, onQuickView }) => {
             <Button
               variant="default"
               size="sm"
-              iconName="ShoppingCart"
+              iconName="FileText"   // 📄 icon for PDF
               iconPosition="left"
             >
-              Ajouter
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              iconName="Calendar"
-              iconPosition="left"
-            >
-              Démo
+              PDF
             </Button>
           </div>
         </div>

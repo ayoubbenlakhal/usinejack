@@ -8,9 +8,7 @@ const FilterSidebar = ({ filters, onFiltersChange, onClearFilters, isCollapsed, 
   const [expandedSections, setExpandedSections] = useState({
     type: true,
     usage: true,
-    price: true,
-    features: false,
-    brand: false
+    features: false
   });
 
   const toggleSection = (section) => {
@@ -29,16 +27,6 @@ const FilterSidebar = ({ filters, onFiltersChange, onClearFilters, isCollapsed, 
     onFiltersChange({
       ...filters,
       [category]: newValues
-    });
-  };
-
-  const handlePriceChange = (field, value) => {
-    onFiltersChange({
-      ...filters,
-      priceRange: {
-        ...filters?.priceRange,
-        [field]: value
-      }
     });
   };
 
@@ -65,18 +53,6 @@ const FilterSidebar = ({ filters, onFiltersChange, onClearFilters, isCollapsed, 
         { value: 'surfilage', label: 'Surfilage', count: 34 },
         { value: 'maroquinerie', label: 'Maroquinerie', count: 16 },
         { value: 'ameublement', label: 'Ameublement', count: 21 }
-      ]
-    },
-    {
-      key: 'brand',
-      title: 'Marque',
-      icon: 'Award',
-      options: [
-        { value: 'brother', label: 'Brother', count: 28 },
-        { value: 'juki', label: 'Juki', count: 35 },
-        { value: 'singer', label: 'Singer', count: 22 },
-        { value: 'janome', label: 'Janome', count: 18 },
-        { value: 'pfaff', label: 'Pfaff', count: 15 }
       ]
     },
     {
@@ -150,6 +126,7 @@ const FilterSidebar = ({ filters, onFiltersChange, onClearFilters, isCollapsed, 
           </Button>
         )}
       </div>
+
       {/* Search */}
       <div className="p-4 border-b border-border">
         <Input
@@ -159,66 +136,7 @@ const FilterSidebar = ({ filters, onFiltersChange, onClearFilters, isCollapsed, 
           onChange={(e) => onFiltersChange({ ...filters, search: e?.target?.value })}
         />
       </div>
-      {/* Price Range */}
-      <div className="p-4 border-b border-border">
-        <button
-          onClick={() => toggleSection('price')}
-          className="flex items-center justify-between w-full mb-3 text-left"
-        >
-          <h3 className="font-medium text-foreground flex items-center space-x-2">
-            <Icon name="Euro" size={16} />
-            <span>Gamme de Prix</span>
-          </h3>
-          <Icon 
-            name={expandedSections?.price ? "ChevronUp" : "ChevronDown"} 
-            size={16} 
-            className="text-muted-foreground"
-          />
-        </button>
-        
-        {expandedSections?.price && (
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-2">
-              <Input
-                type="number"
-                placeholder="Min"
-                value={filters?.priceRange?.min || ''}
-                onChange={(e) => handlePriceChange('min', e?.target?.value)}
-              />
-              <Input
-                type="number"
-                placeholder="Max"
-                value={filters?.priceRange?.max || ''}
-                onChange={(e) => handlePriceChange('max', e?.target?.value)}
-              />
-            </div>
-            
-            {/* Quick Price Ranges */}
-            <div className="space-y-2">
-              <div className="text-xs text-muted-foreground">Gammes populaires:</div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { label: '< 5K€', min: 0, max: 5000 },
-                  { label: '5K-15K€', min: 5000, max: 15000 },
-                  { label: '15K-30K€', min: 15000, max: 30000 },
-                  { label: '> 30K€', min: 30000, max: null }
-                ]?.map((range) => (
-                  <button
-                    key={range?.label}
-                    onClick={() => onFiltersChange({
-                      ...filters,
-                      priceRange: { min: range?.min, max: range?.max }
-                    })}
-                    className="px-2 py-1 text-xs bg-muted hover:bg-primary hover:text-primary-foreground rounded-md transition-micro"
-                  >
-                    {range?.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+
       {/* Filter Sections */}
       <div className="flex-1 overflow-y-auto">
         {filterSections?.map((section) => (

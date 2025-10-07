@@ -100,6 +100,6 @@ npm run build
 
 ## 🙏 Acknowledgments
 
-- build with ayohal benoub 
+- built with ayohal benoub 
 ayoub benlakhal 
 O.D.O.M

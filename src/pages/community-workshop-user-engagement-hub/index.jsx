@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import Header from '../../components/ui/Header';
 import CommunityHeader from './components/CommunityHeader';
 import ForumSection from './components/ForumSection';
-import ProjectGallery from './components/ProjectGallery';
-import ExpertQA from './components/ExpertQA';
-import ChallengesSection from './components/ChallengesSection';
-import MentorshipSection from './components/MentorshipSection';
 
 const CommunityWorkshopUserEngagementHub = () => {
   const [activeTab, setActiveTab] = useState('forums');
@@ -15,16 +11,8 @@ const CommunityWorkshopUserEngagementHub = () => {
     switch (activeTab) {
       case 'forums':
         return <ForumSection searchQuery={searchQuery} />;
-      case 'gallery':
-        return <ProjectGallery searchQuery={searchQuery} />;
-      case 'qa':
-        return <ExpertQA searchQuery={searchQuery} />;
-      case 'challenges':
-        return <ChallengesSection searchQuery={searchQuery} />;
-      case 'mentorship':
-        return <MentorshipSection searchQuery={searchQuery} />;
       default:
-        return <ForumSection searchQuery={searchQuery} />;
+        return null;
     }
   };
 

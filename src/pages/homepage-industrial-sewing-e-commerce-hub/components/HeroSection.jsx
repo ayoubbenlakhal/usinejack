@@ -1,3 +1,4 @@
+// src/pages/maintenance-command-center-service-hub/components/HeroSection.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
@@ -10,7 +11,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          src="http://kb-oss-ali.chinajack.com/2025-06-06%2013%3A55%3A21%E5%BF%ABEN.png"
           alt="Couturière professionnelle utilisant une machine industrielle"
           className="w-full h-full object-cover opacity-40"
         />
@@ -33,7 +34,7 @@ const HeroSection = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                   Votre partenaire complet en{' '}
-                  <span className="text-gradient bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                  <span className="text-gradient bg-gradient-to-r from-[rgb(82,182,245)] to-[rgb(11,114,179)] bg-clip-text text-transparent">
                     couture industrielle
                   </span>
                 </h1>
@@ -44,45 +45,37 @@ const HeroSection = () => {
 
               {/* Description */}
               <p className="text-lg text-slate-200 leading-relaxed max-w-xl">
-                Découvrez notre écosystème complet : machines industrielles de pointe, formation professionnelle, maintenance experte et communauté active. Tout ce dont vous avez besoin pour exceller dans la couture industrielle.
+                Découvrez notre écosystème complet : machines industrielles de pointe, formation professionnelle, maintenance experte et communauté active. 
+                Tout ce dont vous avez besoin pour exceller dans la couture industrielle.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  variant="default" 
-                  size="lg" 
-                  iconName="ArrowRight" 
-                  iconPosition="right"
-                  className="bg-orange-600 hover:bg-orange-700 text-white border-0"
-                >
-                  <Link to="/machine-marketplace-interactive-product-catalog" className="flex items-center space-x-2">
-                    <span>Découvrir les Machines</span>
-                  </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  iconName="Play" 
-                  iconPosition="left"
-                  className="border-white/30 text-white hover:bg-white/10"
-                >
-                  Voir la Démonstration
-                </Button>
-              </div>
+<div className="flex flex-col sm:flex-row gap-4">
+  <Link to="/machine-marketplace-interactive-product-catalog">
+    <Button 
+      variant="default" 
+      size="lg" 
+      iconName="ArrowRight" 
+      iconPosition="right"
+      className="bg-[rgb(11,114,179)] hover:bg-[rgb(8,83,130)] text-white border-0"
+    >
+      Découvrir nos machines
+    </Button>
+  </Link>
+</div>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-400">500+</div>
+                  <div className="text-2xl font-bold text-[rgb(11,114,179)]">500+</div>
                   <div className="text-sm text-slate-300">Machines vendues</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-400">1200+</div>
+                  <div className="text-2xl font-bold text-[rgb(11,114,179)]">1200+</div>
                   <div className="text-sm text-slate-300">Clients satisfaits</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-400">24/7</div>
+                  <div className="text-2xl font-bold text-[rgb(11,114,179)]">24/7</div>
                   <div className="text-sm text-slate-300">Support technique</div>
                 </div>
               </div>
@@ -93,7 +86,7 @@ const HeroSection = () => {
               <div className="grid gap-4">
                 {/* Formation Card */}
                 <Link 
-                  to="/learning-academy-comprehensive-education-hub"
+                  to="/how-to-use"
                   className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300"
                 >
                   <div className="flex items-start space-x-4">
@@ -101,8 +94,10 @@ const HeroSection = () => {
                       <Icon name="GraduationCap" size={24} color="white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">Centre de Formation</h3>
-                      <p className="text-slate-300 text-sm">Tutoriels vidéo, guides pratiques et parcours d'apprentissage personnalisés</p>
+                      <h3 className="text-lg font-semibold text-white mb-2">HOW TO USE</h3>
+                      <p className="text-slate-300 text-sm">
+                        Tutoriels vidéo, guides pratiques et parcours d'apprentissage personnalisés
+                      </p>
                     </div>
                     <Icon name="ArrowRight" size={20} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
@@ -110,7 +105,7 @@ const HeroSection = () => {
 
                 {/* Maintenance Card */}
                 <Link 
-                  to="/maintenance-command-center-service-hub"
+                  to="/academy-gate-mec"
                   className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300"
                 >
                   <div className="flex items-start space-x-4">
@@ -119,7 +114,9 @@ const HeroSection = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-white mb-2">Service & Maintenance</h3>
-                      <p className="text-slate-300 text-sm">Dépannage rapide, maintenance préventive et pièces détachées</p>
+                      <p className="text-slate-300 text-sm">
+                        Dépannage rapide, maintenance préventive et pièces détachées
+                      </p>
                     </div>
                     <Icon name="ArrowRight" size={20} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
@@ -135,8 +132,10 @@ const HeroSection = () => {
                       <Icon name="Users" size={24} color="white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">Communauté Active</h3>
-                      <p className="text-slate-300 text-sm">Échangez avec des experts, partagez vos projets et trouvez l'inspiration</p>
+                      <h3 className="text-lg font-semibold text-white mb-2">Vos réclamations ici</h3>
+                      <p className="text-slate-300 text-sm">
+                        Problème avec votre machine à coudre ? Soumettez une réclamation pour réparation
+                      </p>
                     </div>
                     <Icon name="ArrowRight" size={20} className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
